@@ -1,7 +1,11 @@
-// import styled from "styled-components";
+import HeroSection from "./HeroSection";
+const data = {
+  name : "Mohsin Store"
+}
 
 export const Home = () => {
-  return <div className="test">Home</div>;
+  return <HeroSection mydata={data} />;
 };
+
 
 export default Home;
