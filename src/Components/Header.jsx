@@ -6,7 +6,6 @@ export const Header = () => {
   return (
     <MainHeader>
       <NavLink to="/">
-         {/* <img src="./img/logo.png" alt="logo" /> */}
          <span className="name">Mohsin Dev</span>
       </NavLink>
       <Nav />
