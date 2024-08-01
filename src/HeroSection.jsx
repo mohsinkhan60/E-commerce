@@ -45,6 +45,7 @@ const Wrapper = styled.section`
     p {
       margin: 2rem 0;
       display: flex;
+      color: black;
     }
 
     h1 {
