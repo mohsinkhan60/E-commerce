@@ -53,3 +53,15 @@
       margin-left: 30px;
       margin-top: 20px;
 }
+/*      Feature      */
+
+.top-name{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+}
+.intro-data{
+      font-size: 20px;
+}
