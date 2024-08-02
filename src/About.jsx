@@ -1,11 +1,17 @@
-import HeroSection from "./HeroSection"
+import { useContext } from "react";
+import HeroSection from "./HeroSection";
+import { AppContext } from "./Context/ProductContext";
 
 export const About = () => {
+  const myName = useContext(AppContext);
   const data = {
-    name : ".... Mohsin   Khan .... ( E-commerce )"
-  }
+    name: ".... Mohsin   Khan .... E-commerce",
+  };
   return (
-    <div><HeroSection mydata={data}/></div>
-  )
-}
-export default About
+    <>
+      {myName}
+      <HeroSection mydata={data} />
+    </>
+  );
+};
+export default About;
