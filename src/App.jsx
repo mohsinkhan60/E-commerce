@@ -9,6 +9,7 @@ import Error from "./Error";
 import { GlobalStyle } from "./GlobalStyles";
 import { ThemeProvider } from "styled-components";
 import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 
 export const App = () => {
   const theme = {
@@ -48,6 +49,7 @@ export const App = () => {
           <Route path="/Card" element={<Card />} />
           <Route path="*" element={<Error />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </ThemeProvider>
   );
