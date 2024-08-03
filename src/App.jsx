@@ -3,7 +3,7 @@ import Home from "./Home";
 import About from "./About";
 import Contact from "./Contact";
 import Products from "./Products";
-import SingleProducts from "./SingleProducts";
+import SingleProducts from "./SingleProduct";
 import Card from "./Card";
 import Error from "./Error";
 import { GlobalStyle } from "./GlobalStyles";
