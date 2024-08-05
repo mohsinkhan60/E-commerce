@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-undef */
 import { useContext, useEffect } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import styled from "styled-components";
 import { AppContext } from "./Context/ProductContext";
 import PageNavigation from "./Components/PageNavigation";
@@ -11,12 +11,14 @@ import { TbReplace, TbTruckDelivery } from "react-icons/tb";
 import { MdSecurity } from "react-icons/md";
 import MyImage from "./Components/MyImage";
 import Starr from "./Components/Starr";
+import AppToCart from "./Components/AppToCart";
 
 const API = "https://api.pujakaitem.com/api/products";
 
 const SingleProduct = () => {
   const { getSingleProduct, isSingleLoading, SingleProduct } =
     useContext(AppContext);
+  const navigate = useNavigate();
 
   const { id } = useParams();
 
@@ -47,6 +49,8 @@ const SingleProduct = () => {
     );
   }
 
+  if (!name) return navigate("/");
+
   return (
     <Wrapper>
       <PageNavigation title={name} />
@@ -55,13 +59,12 @@ const SingleProduct = () => {
           {/* product img */}
           <div className="product-image">
             <MyImage imgs={image} />
-            </div>
+          </div>
 
           {/* product data */}
           <div className="product-data">
             <h2>{name}</h2>
             <Starr stars={stars} reviews={reviews} />
-
             <p className="product-data-price">
               MRP:
               <del>
@@ -105,6 +108,8 @@ const SingleProduct = () => {
                 Brand :<span> {company} </span>
               </p>
             </div>
+            <hr />
+            {stock > 0 && <AppToCart product={SingleProduct} />}/
           </div>
         </div>
       </Container>
