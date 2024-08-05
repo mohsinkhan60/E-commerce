@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { AppContext } from "./ProductContext";
 import filterReducer from "../Reducer/filerReducer";
@@ -7,7 +8,7 @@ const FilterContext = createContext();
 const initialState = {
   filter_products: [],
   all_products: [],
-  grid_view: true,
+  grid_view: false,
 };
 
 export const FilterContextProvider = ({ children }) => {
@@ -16,7 +17,10 @@ export const FilterContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(filterReducer, initialState);
 
   const setGridView = () => {
-    return dispatch({ type: "SET-GRIDVIEW" });
+    return dispatch({ type: "SET_GRID_VIEW" });
+  };
+  const setListView = () => {
+    return dispatch({ type: "SET_LIST_VIEW" });
   };
 
   useEffect(() => {
@@ -24,7 +28,7 @@ export const FilterContextProvider = ({ children }) => {
   }, [products]);
 
   return (
-    <FilterContext.Provider value={{ ...state, setGridView }}>
+    <FilterContext.Provider value={{ ...state, setGridView, setListView }}>
       {children}
     </FilterContext.Provider>
   );
