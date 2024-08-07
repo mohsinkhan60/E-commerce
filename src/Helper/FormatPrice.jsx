@@ -1,4 +1,4 @@
-const FormatPrice = ({ price }) => {
+export const FormatPrice = ({ price }) => {
   return Intl.NumberFormat("en-PK", {
     style: "currency",
     currency: "PKR",

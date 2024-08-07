@@ -29,3 +29,4 @@ export const Button = styled.button`
     font-size: 1.8rem;
   }
 `;
+export default Button;
