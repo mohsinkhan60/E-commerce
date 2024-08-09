@@ -30,6 +30,7 @@ export const filterReducer = (state, action) => {
     case "FILTER_PRODUCTS": {
       const { all_products } = state;
       const { text, category, company, colors } = state.filters;
+
       let filteredProducts = [...all_products];
 
       if (text) {
@@ -49,17 +50,19 @@ export const filterReducer = (state, action) => {
           (product) => product.company === company
         );
       }
-      
-      if(colors && colors !== "all") {
-        filteredProducts = filteredProducts.filter(
-          (product) => product.colors.includes(colors));
+
+      if (colors && colors !== "all") {
+        filteredProducts = filteredProducts.filter((product) =>
+          product.colors.includes(colors)
+        );
       }
+
       return {
         ...state,
         filter_products: filteredProducts,
       };
     }
-    
+
     case "CLEAR_FILTERS":
       return {
         ...state,
@@ -70,7 +73,6 @@ export const filterReducer = (state, action) => {
           colors: "all",
         },
       };
-
 
     default:
       return state;

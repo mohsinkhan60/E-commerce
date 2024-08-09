@@ -49,7 +49,7 @@ export const cartReducer = (state, action) => {
   if (action.type === "SET_DECREASE") {
     let updatedProduct = state.cart.map((curItem) => {
       if (curItem.id === action.payload) {
-        let decAmount = curItem.amount - 1;
+        let decAmount =curItem.amount - 1;
 
         if (decAmount <= 1) {
           decAmount = 1;
