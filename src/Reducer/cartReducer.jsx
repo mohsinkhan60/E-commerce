@@ -120,7 +120,7 @@ export const cartReducer = (state = initialState, action) => {
   }
 
   if (action.type === "CART_TOTAL_AMOUNT") {
-    let updatedAmount = state.cart.reduce((initialVal, curElem) => {
+    let updatedAmount = state?.cart?.reduce((initialVal, curElem) => {
       let { amount, price } = curElem;
       initialVal = initialVal + amount * price;
       return initialVal;
