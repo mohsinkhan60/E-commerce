@@ -6,12 +6,12 @@ const CartContext = createContext();
 
 const getLocalCartData = () => {
   let newCartData = localStorage.getItem("MohsinCart");
-  if(newCartData.length === 0){
+  if (newCartData?.length === 0) {
     return [];
-  }else{
+  } else {
     return JSON.parse(newCartData);
   }
-}
+};
 
 const initialState = {
   // cart: [],
@@ -37,20 +37,29 @@ const CartProvider = ({ children }) => {
 
   const removeItem = (id) => {
     dispatch({ type: "REMOVE_ITEM", payload: id });
-  }
+  };
 
   const clearCart = () => {
     dispatch({ type: "CLEAR_CART" });
-  }
+  };
 
   useEffect(() => {
     dispatch({ type: "CART_TOTAL_ITEM" });
     dispatch({ type: "CART_TOTAL_AMOUNT" });
     localStorage.setItem("MohsinCart", JSON.stringify(state.cart));
-  },[state.cart])
+  }, [state.cart]);
 
   return (
-    <CartContext.Provider value={{ ...state, addToCart, removeItem, clearCart, setDecrease, setIncrease }}>
+    <CartContext.Provider
+      value={{
+        ...state,
+        addToCart,
+        removeItem,
+        clearCart,
+        setDecrease,
+        setIncrease,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );
