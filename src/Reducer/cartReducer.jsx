@@ -7,7 +7,7 @@ const initialState = {
 export const cartReducer = (state = initialState, action) => {
 
 
-  if (action?.type === "ADD_TO_CART") {
+  if (action.type === "ADD_TO_CART") {
     let { id, color, amount, product } = action.payload;
 
     let existingProduct = state?.cart?.find(
@@ -16,7 +16,7 @@ export const cartReducer = (state = initialState, action) => {
 
     if (existingProduct) {
       let updatedProduct = state?.cart?.map((curElem) => {
-        if (curElem?.id === id + color) {
+        if (curElem.id === id + color) {
           let newAmount = curElem.amount + amount;
           return {
             ...curElem,
@@ -48,10 +48,10 @@ export const cartReducer = (state = initialState, action) => {
     }
   }
 
-  if (action?.type === "SET_DECREASE") {
-    let updatedProduct = state.cart?.map((curItem) => {
-      if (curItem?.id === action.payload) {
-        let decAmount = curItem?.amount - 1;
+  if (action.type === "SET_DECREASE") {
+    let updatedProduct = state.cart.map((curItem) => {
+      if (curItem.id === action.payload) {
+        let decAmount = curItem.amount - 1;
 
         if (decAmount <= 1) {
           decAmount = 1;
@@ -70,13 +70,13 @@ export const cartReducer = (state = initialState, action) => {
     };
   }
 
-  if (action?.type === "SET_INCREASE") {
-    let updatedProduct = state?.cart.map((curItem) => {
-      if (curItem?.id === action?.payload) {
-        let IncAmount = curItem?.amount + 1;
+  if (action.type === "SET_INCREASE") {
+    let updatedProduct = state.cart.map((curItem) => {
+      if (curItem.id === action.payload) {
+        let IncAmount = curItem.amount + 1;
 
-        if (IncAmount >= curItem?.max) {
-          IncAmount = curItem?.max;
+        if (IncAmount >= curItem.max) {
+          IncAmount = curItem.max;
         }
         return {
           ...curItem,
@@ -92,9 +92,9 @@ export const cartReducer = (state = initialState, action) => {
     };
   }
 
-  if (action?.type === "REMOVE_ITEM") {
-    let updatedCart = state.cart?.filter(
-      (curItem) => curItem.id !== action?.payload
+  if (action.type === "REMOVE_ITEM") {
+    let updatedCart = state.cart.filter(
+      (curItem) => curItem.id !== action.payload
     );
     return {
       ...state,
@@ -102,14 +102,14 @@ export const cartReducer = (state = initialState, action) => {
     };
   }
 
-  if (action?.type === "CLEAR_CART") {
+  if (action.type === "CLEAR_CART") {
     return {
       ...state,
       cart: [],
     };
   }
 
-  if (action?.type === "CART_TOTAL_ITEM") {
+  if (action.type === "CART_TOTAL_ITEM") {
     let updatedItemVal = state?.cart?.reduce((initialVal, curElem) => {
       let { amount } = curElem;
       initialVal = initialVal + amount;
@@ -121,7 +121,7 @@ export const cartReducer = (state = initialState, action) => {
     };
   }
 
-  if (action?.type === "CART_TOTAL_AMOUNT") {
+  if (action.type === "CART_TOTAL_AMOUNT") {
     let updatedAmount = state?.cart?.reduce((initialVal, curElem) => {
       let { amount, price } = curElem;
       initialVal = initialVal + amount * price;
