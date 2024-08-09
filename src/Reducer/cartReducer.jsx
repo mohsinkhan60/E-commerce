@@ -5,15 +5,17 @@ const initialState = {
 };
 
 export const cartReducer = (state = initialState, action) => {
+
+  
   if (action.type === "ADD_TO_CART") {
     let { id, color, amount, product } = action.payload;
 
-    let existingProduct = state.cart.find(
+    let existingProduct = state?.cart?.find(
       (curItem) => curItem.id === id + color
     );
 
     if (existingProduct) {
-      let updatedProduct = state.cart.map((curElem) => {
+      let updatedProduct = state?.cart?.map((curElem) => {
         if (curElem.id === id + color) {
           let newAmount = curElem.amount + amount;
           return {
