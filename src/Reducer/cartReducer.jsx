@@ -6,12 +6,12 @@ const initialState = {
 
 export const cartReducer = (state = initialState, action) => {
 
-  
+
   if (action.type === "ADD_TO_CART") {
     let { id, color, amount, product } = action.payload;
 
     let existingProduct = state?.cart?.find(
-      (curItem) => curItem.id === id + color
+      (curItem) => curItem?.id === id + color
     );
 
     if (existingProduct) {
@@ -43,7 +43,7 @@ export const cartReducer = (state = initialState, action) => {
 
       return {
         ...state,
-        cart: [...state.cart, cartProduct],
+        cart: [state?.cart, cartProduct],
       };
     }
   }
