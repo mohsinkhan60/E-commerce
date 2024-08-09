@@ -45,6 +45,7 @@ const CartProvider = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: "CART_TOTAL_ITEM" });
+    dispatch({ type: "CART_TOTAL_AMOUNT" });
     localStorage.setItem("MohsinCart", JSON.stringify(state.cart));
   },[state.cart])
 
