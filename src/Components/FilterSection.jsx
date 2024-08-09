@@ -38,7 +38,7 @@ const FilterSection = () => {
       <div className="filter-category">
         <h3>Category</h3>
         <div>
-          {categoryOnlyData.map((category, index) => (
+          {categoryOnlyData?.map((category, index) => (
             <button
               key={index}
               type="button"
@@ -62,7 +62,7 @@ const FilterSection = () => {
             className="filter-company--select"
             onClick={updateFilterValue}
           >
-            {companyData.map((curElem, index) => {
+            {companyData?.map((curElem, index) => {
               return (
                 <option key={index} value={curElem} name="company">
                   {curElem}
@@ -76,7 +76,7 @@ const FilterSection = () => {
       <div className="filter-colors colors">
         <h3>Colors</h3>
         <div className="filter-color-style">
-          {colorsData.map((curColor, index) => {
+          {colorsData?.map((curColor, index) => {
             if (curColor === "All") {
               return (
                 <button

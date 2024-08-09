@@ -19,7 +19,7 @@ const FeatureProduct = () => {
         <div className="common-heading">Our Feature Services</div>
         </div>
         <div className="grid grid-three-column">
-          {featureProducts.map((curElem) => {
+          {featureProducts?.map((curElem) => {
             return <Product key={curElem.id} {...curElem} />;
           })}
         </div>
